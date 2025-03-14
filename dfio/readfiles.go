@@ -1,24 +1,12 @@
-package dataframe
+package dfio
 
 import (
-	"dataframe/dtypes"
 	"encoding/csv"
 	"fmt"
 	"os"
 )
 
-type column struct {
-	name    string
-	colType dtypes.Dtype
-}
-
-type DataFrame struct {
-	Shape [2]int
-	Cols  []column
-	data  [][]any
-}
-
-func ReadCsv(filePath string) (DataFrame, error) {
+func __ReadCsv(filePath string) (DataFrame, error) {
 	reader, readErr := os.OpenFile(filePath, os.O_RDWR, os.ModePerm)
 
 	if readErr != nil {
